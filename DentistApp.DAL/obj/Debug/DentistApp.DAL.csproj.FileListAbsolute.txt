@@ -1,0 +1,9 @@
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\bin\Debug\DentistApp.DAL.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\bin\Debug\DentistApp.DAL.pdb
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\bin\Debug\Newtonsoft.Json.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\bin\Debug\NPoco.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\bin\Debug\Newtonsoft.Json.xml
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\bin\Debug\NPoco.xml
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\obj\Debug\DentistApp.DAL.csprojResolveAssemblyReference.cache
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\obj\Debug\DentistApp.DAL.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.DAL\obj\Debug\DentistApp.DAL.pdb

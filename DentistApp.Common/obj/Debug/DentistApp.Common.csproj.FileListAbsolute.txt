@@ -1,0 +1,10 @@
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\bin\Debug\DentistApp.Common.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\bin\Debug\DentistApp.Common.pdb
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\bin\Debug\Omu.ValueInjecter.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\bin\Debug\Omu.ValueInjecter.pdb
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\bin\Debug\Omu.ValueInjecter.xml
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\obj\Debug\DentistApp.Common.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\obj\Debug\DentistApp.Common.pdb
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\obj\Debug\DentistApp.Common.csprojResolveAssemblyReference.cache
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\bin\Debug\NPoco.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.Common\bin\Debug\NPoco.xml

@@ -1,0 +1,16 @@
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\DentistApp.BLL.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\DentistApp.BLL.pdb
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\DentistApp.Common.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\DentistApp.DAL.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\Omu.ValueInjecter.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\NPoco.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\Newtonsoft.Json.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\DentistApp.Common.pdb
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\DentistApp.DAL.pdb
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\Omu.ValueInjecter.pdb
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\Omu.ValueInjecter.xml
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\NPoco.xml
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\bin\Debug\Newtonsoft.Json.xml
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\obj\Debug\DentistApp.BLL.csprojResolveAssemblyReference.cache
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\obj\Debug\DentistApp.BLL.dll
+H:\Visual Studio 2013\Projects\DentistAppNHibernate\DentistApp.BLL\obj\Debug\DentistApp.BLL.pdb

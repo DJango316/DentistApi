@@ -1,0 +1,1213 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NPoco</name>
+    </assembly>
+    <members>
+        <member name="T:NPoco.BitStream">
+            <summary>
+            Utility that read and write bits in byte array
+            </summary>
+        </member>
+        <member name="M:NPoco.BitStream.#ctor(System.Int32)">
+            <summary>
+            Initialize the stream with capacity
+            </summary>
+            <param name="capacity">Capacity of the stream</param>
+        </member>
+        <member name="M:NPoco.BitStream.#ctor(System.Byte[])">
+            <summary>
+            Initialize the stream with a source byte array
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="P:NPoco.BitStream.Length">
+            <summary>
+            Bit length of the stream
+            </summary>
+        </member>
+        <member name="P:NPoco.BitStream.Position">
+            <summary>
+            Bit position of the stream
+            </summary>
+        </member>
+        <member name="M:NPoco.BitStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Read the stream to the buffer
+            </summary>
+            <param name="buffer">Buffer</param>
+            <param name="offset">Offset bit start position of the stream</param>
+            <param name="count">Number of bits to read</param>
+            <returns>Number of bits read</returns>
+        </member>
+        <member name="M:NPoco.BitStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Set up the stream position
+            </summary>
+            <param name="offset">Position</param>
+            <param name="origin">Position origin</param>
+            <returns>Position after setup</returns>
+        </member>
+        <member name="M:NPoco.BitStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Write from buffer to the stream
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset">Offset start bit position of buffer</param>
+            <param name="count">Number of bits</param>
+        </member>
+        <member name="M:NPoco.Base62.ToBase62(System.Byte[])">
+            <summary>
+            Convert a byte array
+            </summary>
+            <param name="original">Byte array</param>
+            <returns>Base62 string</returns>
+        </member>
+        <member name="M:NPoco.Base62.FromBase62(System.String)">
+            <summary>
+            Convert a Base62 string to byte array
+            </summary>
+            <param name="base62">Base62 string</param>
+            <returns>Byte array</returns>
+        </member>
+        <member name="T:NPoco.ManagedCache">
+            <summary>
+            Container for a Memory cache object
+            </summary>
+            <remarks>
+            Better to have one memory cache instance than many so it's memory management can be handled more effectively
+            http://stackoverflow.com/questions/8463962/using-multiple-instances-of-memorycache
+            </remarks>
+        </member>
+        <member name="M:NPoco.Cache`2.CreateStaticCache">
+            <summary>
+            Creates a cache that uses static storage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:NPoco.ComputedColumnType.Always">
+            <summary>
+            Always considered as a computed column
+            </summary>
+        </member>
+        <member name="F:NPoco.ComputedColumnType.ComputedOnInsert">
+            <summary>
+            Only considered a Computed column for inserts, Updates will not consider this column to be computed
+            </summary>
+        </member>
+        <member name="F:NPoco.ComputedColumnType.ComputedOnUpdate">
+            <summary>
+            Only considered a Computed column for updates, Inserts will not consider this column to be computed
+            </summary>
+        </member>
+        <member name="M:NPoco.Database.IsNew``1(``0)">
+            <summary>Checks if a poco represents a new record.</summary>
+        </member>
+        <member name="T:NPoco.DatabaseType">
+            <summary>
+            Base class for DatabaseType handlers - provides default/common handling for different database engines
+            </summary>
+        </member>
+        <member name="M:NPoco.DatabaseType.AddTypeMap(System.Type,System.Data.DbType)">
+            <summary>
+            Configire the specified type to be mapped to a given db-type
+            </summary>
+        </member>
+        <member name="M:NPoco.DatabaseType.GetParameterPrefix(System.String)">
+            <summary>
+            Returns the prefix used to delimit parameters in SQL query strings.
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.DatabaseType.MapParameterValue(System.Object)">
+            <summary>
+            Converts a supplied C# object value into a value suitable for passing to the database
+            </summary>
+            <param name="value">The value to convert</param>
+            <returns>The converted value</returns>
+        </member>
+        <member name="M:NPoco.DatabaseType.PreExecute(System.Data.Common.DbCommand)">
+            <summary>
+            Called immediately before a command is executed, allowing for modification of the DbCommand before it's passed to the database provider
+            </summary>
+            <param name="cmd"></param>
+        </member>
+        <member name="M:NPoco.DatabaseType.BuildPageQuery(System.Int64,System.Int64,NPoco.PagingHelper.SQLParts,System.Object[]@)">
+            <summary>
+            Builds an SQL query suitable for performing page based queries to the database
+            </summary>
+            <param name="skip">The number of rows that should be skipped by the query</param>
+            <param name="take">The number of rows that should be retruend by the query</param>
+            <param name="parts">The original SQL query after being parsed into it's component parts</param>
+            <param name="args">Arguments to any embedded parameters in the SQL query</param>
+            <returns>The final SQL query that should be executed.</returns>
+        </member>
+        <member name="M:NPoco.DatabaseType.GetExistsSql">
+            <summary>
+            Returns an SQL Statement that can check for the existance of a row in the database.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.DatabaseType.EscapeTableName(System.String)">
+            <summary>
+            Escape a tablename into a suitable format for the associated database provider.
+            </summary>
+            <param name="tableName">The name of the table (as specified by the client program, or as attributes on the associated POCO class.</param>
+            <returns>The escaped table name</returns>
+        </member>
+        <member name="M:NPoco.DatabaseType.EscapeSqlIdentifier(System.String)">
+            <summary>
+            Escape and arbitary SQL identifier into a format suitable for the associated database provider
+            </summary>
+            <param name="str">The SQL identifier to be escaped</param>
+            <returns>The escaped identifier</returns>
+        </member>
+        <member name="M:NPoco.DatabaseType.GetAutoIncrementExpression(NPoco.TableInfo)">
+            <summary>
+            Return an SQL expression that can be used to populate the primary key column of an auto-increment column.
+            </summary>
+            <param name="ti">Table info describing the table</param>
+            <returns>An SQL expressions</returns>
+            <remarks>See the Oracle database type for an example of how this method is used.</remarks>
+        </member>
+        <member name="M:NPoco.DatabaseType.GetInsertOutputClause(System.String,System.Boolean)">
+            <summary>
+            Returns an SQL expression that can be used to specify the return value of auto incremented columns.
+            </summary>
+            <param name="primaryKeyName">The primary key of the row being inserted.</param>
+            <returns>An expression describing how to return the new primary key value</returns>
+            <remarks>See the SQLServer database provider for an example of how this method is used.</remarks>
+        </member>
+        <member name="M:NPoco.DatabaseType.ExecuteInsert``1(NPoco.Database,System.Data.Common.DbCommand,System.String,System.Boolean,``0,System.Object[])">
+            <summary>
+            Performs an Insert operation
+            </summary>
+            <param name="db">The calling Database object</param>
+            <param name="cmd">The insert command to be executed</param>
+            <param name="primaryKeyName">The primary key of the table being inserted into</param>
+            <param name="useOutputClause"></param>
+            <param name="poco"></param>
+            <param name="args"></param>
+            <returns>The ID of the newly inserted record</returns>
+        </member>
+        <member name="M:NPoco.DatabaseType.Resolve(System.String,System.String)">
+            <summary>
+            Look at the type and provider name being used and instantiate a suitable DatabaseType instance.
+            </summary>
+            <param name="typeName"></param>
+            <param name="providerName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NPoco.HashCodeCombiner">
+            <summary>
+            Used to create a hash code from multiple objects.
+            </summary>
+            <remarks>
+            .Net has a class the same as this: System.Web.Util.HashCodeCombiner and of course it works for all sorts of things
+            which we've not included here as we just need a quick easy class for this in order to create a unique
+            hash of directories/files to see if they have changed.
+            </remarks>
+        </member>
+        <member name="M:NPoco.HashCodeCombiner.GetCombinedHashCode">
+            <summary>
+            Returns the hex code of the combined hash code
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NPoco.IDatabase.Connection">
+            <summary>
+            The underlying connection object
+            </summary>
+        </member>
+        <member name="P:NPoco.IDatabase.Transaction">
+            <summary>
+            The underlying transaction object
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.CreateParameter">
+            <summary>
+            Creates a DbParameter for the specific database provider
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.AddParameter(System.Data.Common.DbCommand,System.Object)">
+            <summary>
+            Adds a parameter to the DbCommand specified
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.CreateCommand(System.Data.Common.DbConnection,System.String,System.Object[])">
+            <summary>
+            Creates a command given a connection and sql
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.GetTransaction">
+            <summary>
+            Begins a new transaction and returns ITransaction which can be used in a using statement
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.GetTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Begins a new transaction and returns ITransaction which can be used in a using statement
+            </summary>        
+        </member>
+        <member name="P:NPoco.IDatabase.Data">
+            <summary>
+            A data bag to store whatever you like per IDatabase instance
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.SetTransaction(System.Data.Common.DbTransaction)">
+            <summary>
+            A way to set the transaction from an existing DbTransaction
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.BeginTransaction">
+            <summary>
+            Manually begin a transaction. Recommended to use GetTransaction
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Manually begin a transaction. Recommended to use GetTransaction
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.AbortTransaction">
+            <summary>
+            Manually abort/rollback a transaction
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.CompleteTransaction">
+            <summary>
+            Manually commit a transaction
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Insert``1(System.String,System.String,System.Boolean,``0)">
+            <summary>
+            Insert POCO into the table, primary key and autoincrement specified
+            </summary>         
+        </member>
+        <member name="M:NPoco.IDatabase.Insert``1(System.String,System.String,``0)">
+            <summary>
+            Insert POCO into the table, primary key specified
+            </summary>    
+        </member>
+        <member name="M:NPoco.IDatabase.Insert``1(``0)">
+            <summary>
+            Insert POCO into the table by convention or configuration
+            </summary>   
+        </member>
+        <member name="M:NPoco.IDatabase.InsertBulk``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Insert POCO's into database using SqlBulkCopy for SqlServer (other DB's currently fall back to looping each row)
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.InsertBatch``1(System.Collections.Generic.IEnumerable{``0},NPoco.BatchOptions)">
+            <summary>
+            Insert POCO's into database using by concatenating sql using the provided batch options
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update(System.String,System.String,System.Object,System.Object)">
+            <summary>
+            Update POCO in the specified table, primary key and primarkey value
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update(System.String,System.String,System.Object)">
+            <summary>
+            Update POCO in the specified table, primary key
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update(System.String,System.String,System.Object,System.Object,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Update POCO in the specified table, primary key, primarkey value for only the columns specified
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Update POCO in the specified table, primary key for only the columns specified
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update(System.Object,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Update POCO by convention or configuration for only the columns specified
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update(System.Object,System.Object,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Update POCO by primary key for only the columns specified
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update(System.Object)">
+            <summary>
+            Update POCO by convention or configuration
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Update POCO by convention or configuration specifying the properties to update
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update(System.Object,System.Object)">
+            <summary>
+            Update POCO by primary key
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update``1(System.String,System.Object[])">
+            <summary>
+            Runs an update statement deriving the table name from T and appending the sql provided. 
+            </summary>        
+            <example>
+            Update&lt;User&gt;("set name = @0 where id = @1", "John", 1);
+            </example>        
+        </member>
+        <member name="M:NPoco.IDatabase.Update``1(NPoco.Sql)">
+            <summary>
+            Runs an update statement deriving the table name from T and appending the sql provided. 
+            </summary>        
+            <example>
+            Update&lt;User&gt;("set name = @0 where id = @1", "John", 1);
+            </example>
+        </member>
+        <member name="M:NPoco.IDatabase.UpdateMany``1">
+            <summary>
+            Generate an update statement using a Fluent syntax. Remember to call Execute.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabase.Delete(System.String,System.String,System.Object)">
+            <summary>
+            Delete POCO specifying the table name and primary key
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Delete(System.String,System.String,System.Object,System.Object)">
+            <summary>
+            Delete POCO specifying the table name, primary key name and primary key value
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Delete(System.Object)">
+            <summary>
+            Delete POCO using convention or configuration
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Delete``1(System.String,System.Object[])">
+            <summary>
+            Runs an delete statement deriving the table name from T and appending the sql provided. 
+            </summary>        
+            <example>
+            Delete&lt;User&gt;("where id = @0", 1);
+            </example>     
+        </member>
+        <member name="M:NPoco.IDatabase.Delete``1(NPoco.Sql)">
+            <summary>
+            Runs an delete statement deriving the table name from T and appending the sql provided. 
+            </summary>        
+            <example>
+            Delete&lt;User&gt;("where id = @0", 1);
+            </example>
+        </member>
+        <member name="M:NPoco.IDatabase.Delete``1(System.Object)">
+            <summary>
+            Delete POCO deriving the table name from T and generating sql using the primary key
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.DeleteMany``1">
+            <summary>
+            Generate a delete statement using a Fluent syntax. Remember to call Execute.
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.Save``1(``0)">
+            <summary>
+            Performs and insert or an update depending on whether the POCO already exists
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabase.IsNew``1(``0)">
+            <summary>
+            Determines whether the POCO already exists
+            </summary>        
+        </member>
+        <member name="P:NPoco.IDatabaseConfig.Mappers">
+            <summary>
+            A collection of mappers used for converting values on inserting or on mapping
+            </summary>        
+        </member>
+        <member name="P:NPoco.IDatabaseConfig.PocoDataFactory">
+            <summary>
+            The PocoData factory used to build the meta data used by NPoco
+            </summary>        
+        </member>
+        <member name="P:NPoco.IDatabaseConfig.DatabaseType">
+            <summary>
+            The target database used to handle different oddities in the different database providers
+            </summary>        
+        </member>
+        <member name="P:NPoco.IDatabaseConfig.Interceptors">
+            <summary>
+            A list of IInterceptor's which can run at different times in the CRUD lifecyle
+            </summary>        
+        </member>
+        <member name="P:NPoco.IDatabaseConfig.ConnectionString">
+            <summary>
+            Retrieves current connection string
+            </summary>        
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.OpenSharedConnection">
+            <summary>
+            Opens the DbConnection manually
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.CloseSharedConnection">
+            <summary>
+            Closes the DBConnection manually
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.BuildPageQueries``1(System.Int64,System.Int64,System.String,System.Object[]@,System.String@,System.String@)">
+            <summary>
+            Builds a paged query from a non-paged query
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Execute(System.String,System.Object[])">
+            <summary>
+            Executes the provided sql and parameters
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Execute(NPoco.Sql)">
+            <summary>
+            Executes the provided sql and parameters
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.ExecuteScalar``1(System.String,System.Object[])">
+            <summary>
+            Executes the provided sql and parameters and casts the result to T
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.ExecuteScalar``1(NPoco.Sql)">
+            <summary>
+            Executes the provided sql and parameters and casts the result to T
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Fetch(System.Type,System.String,System.Object[])">
+            <summary>
+            Non generic Fetch which returns a list of objects of the given type provided
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Fetch(System.Type,NPoco.Sql)">
+            <summary>
+            Non generic Fetch which returns a list of objects of the given type provided
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Query(System.Type,System.String,System.Object[])">
+            <summary>
+            Non generic Query which returns a list of objects of the given type provided. 
+            Caution: This query will only be executed once you start iterating the result
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Query(System.Type,NPoco.Sql)">
+            <summary>
+            Non generic Query which returns a list of objects of the given type provided. 
+            Caution: This query will only be executed once you start iterating the result
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Fetch``1">
+            <summary>
+            Fetch all objects of type T from the database using the conventions or configuration on the type T. 
+            Caution: This will retrieve ALL objects in the table
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Fetch``1(System.String,System.Object[])">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Fetch``1(NPoco.Sql)">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Fetch``1(System.Int64,System.Int64,System.String,System.Object[])">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            The sql provided will be converted so that only the results for the page and itemsPerPage values specified will be returned.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Fetch``1(System.Int64,System.Int64,NPoco.Sql)">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            The sql provided will be converted so that only the results for the page and itemsPerPage values specified will be returned.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Page``1(System.Int64,System.Int64,System.String,System.Object[])">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            The sql provided will be converted so that only the results for the page and itemsPerPage specified will be returned.
+            Extra metadata in the Page class will also be returned.
+            Note: This will perform two queries. One for the paged results and one for the count of all results.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Page``1(System.Int64,System.Int64,NPoco.Sql)">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            The sql provided will be converted so that only the results for the page and itemsPerPage specified will be returned.
+            Extra metadata in the Page class will also be returned.
+            Note: This will perform two queries. One for the paged results and one for the count of all results.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SkipTake``1(System.Int64,System.Int64,System.String,System.Object[])">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            The sql provided will be converted so that only the results for the skip and take values specified will be returned.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SkipTake``1(System.Int64,System.Int64,NPoco.Sql)">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            The sql provided will be converted so that only the results for the skip and take values specified will be returned.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchOneToMany``1(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.IList}},System.String,System.Object[])">
+            <summary>
+            Fetch objects of type T using the sql provided, but also retrieve the many property's data using the sql provided.
+            The one columns should come first then the many columns. 
+            eg. select one.*, many.* from one inner join many on one.id = many.oneid
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchOneToMany``1(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.IList}},NPoco.Sql)">
+            <summary>
+            Fetch objects of type T using the sql provided, but also retrieve the many property's data using the sql provided.
+            The one columns should come first then the many columns. 
+            eg. select one.*, many.* from one inner join many on one.id = many.oneid
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchOneToMany``1(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.IList}},System.Func{``0,System.Object},System.String,System.Object[])">
+            <summary>
+            Fetch objects of type T using the sql provided, but also retrieve the many property's data using the sql provided.
+            The one columns should come first then the many columns. 
+            eg. select one.*, many.* from one inner join many on one.id = many.oneid
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchOneToMany``1(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.IList}},System.Func{``0,System.Object},NPoco.Sql)">
+            <summary>
+            Fetch objects of type T using the sql provided, but also retrieve the many property's data using the sql provided.
+            The one columns should come first then the many columns. 
+            eg. select one.*, many.* from one inner join many on one.id = many.oneid
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Query``1(System.String,System.Object[])">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            Caution: This query will only be executed once you start iterating the result
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Query``1(NPoco.Sql)">
+            <summary>
+            Fetch objects of type T from the database using the sql and parameters specified. 
+            Caution: This query will only be executed once you start iterating the result
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Query``1">
+            <summary>
+            Entry point for LINQ queries
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SingleById``1(System.Object)">
+            <summary>
+            Get an object of type T by primary key value
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Single``1(System.String,System.Object[])">
+            <summary>
+            Fetch the only row of type T using the sql and parameters specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SingleInto``1(``0,System.String,System.Object[])">
+            <summary>
+            Fetch the only row of type T using the sql and parameters specified into the T instance provided
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SingleOrDefaultById``1(System.Object)">
+            <summary>
+            Get an object of type T by primary key value where the row may not be there
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SingleOrDefault``1(System.String,System.Object[])">
+            <summary>
+            Fetch the only row of type T using the sql and parameters specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SingleOrDefaultInto``1(``0,System.String,System.Object[])">
+            <summary>
+            Fetch the only row of type T using the sql and parameters specified into the T instance provided
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.First``1(System.String,System.Object[])">
+            <summary>
+            Fetch the first row of type T using the sql and parameters specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FirstInto``1(``0,System.String,System.Object[])">
+            <summary>
+            Fetch the first row of type T using the sql and parameters specified into the T instance provided
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FirstOrDefault``1(System.String,System.Object[])">
+            <summary>
+            Fetch the first row of type T using the sql and parameters specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FirstOrDefaultInto``1(``0,System.String,System.Object[])">
+            <summary>
+            Fetch the first row of type T using the sql and parameters specified into the T instance provided
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Single``1(NPoco.Sql)">
+            <summary>
+            Fetch the only row of type T using the Sql specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SingleInto``1(``0,NPoco.Sql)">
+            <summary>
+            Fetch the only row of type T using the Sql specified into the T instance provided
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SingleOrDefault``1(NPoco.Sql)">
+            <summary>
+            Fetch the only row of type T using the Sql specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.SingleOrDefaultInto``1(``0,NPoco.Sql)">
+            <summary>
+            Fetch the only row of type T using the Sql specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.First``1(NPoco.Sql)">
+            <summary>
+            Fetch the first row of type T using the Sql specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FirstInto``1(``0,NPoco.Sql)">
+            <summary>
+            Fetch the first row of type T using the Sql specified into the T instance provided
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FirstOrDefault``1(NPoco.Sql)">
+            <summary>
+            Fetch the first row of type T using the Sql specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FirstOrDefaultInto``1(``0,NPoco.Sql)">
+            <summary>
+            Fetch the first row of type T using the Sql specified
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Dictionary``2(NPoco.Sql)">
+            <summary>
+            Fetches the first two columns into a dictionary using the first value as the key and the second as the value
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Dictionary``2(System.String,System.Object[])">
+            <summary>
+            Fetches the first two columns into a dictionary using the first value as the key and the second as the value
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.Exists``1(System.Object)">
+            <summary>
+            Checks if the POCO of type T exists by using the primary key value
+            </summary>
+        </member>
+        <member name="P:NPoco.IDatabaseQuery.OneTimeCommandTimeout">
+            <summary>
+            Specifies the command timeout to be used for the very next command
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``3(System.Func{System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},``2},System.String,System.Object[])">
+            <summary>
+            Fetches multiple result sets into the one object.
+            In this method you must provide how you will take the results and combine them
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``4(System.Func{System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},System.Collections.Generic.List{``2},``3},System.String,System.Object[])">
+            <summary>
+            Fetches multiple result sets into the one object.
+            In this method you must provide how you will take the results and combine them
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``5(System.Func{System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},System.Collections.Generic.List{``2},System.Collections.Generic.List{``3},``4},System.String,System.Object[])">
+            <summary>
+            Fetches multiple result sets into the one object.
+            In this method you must provide how you will take the results and combine them
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``3(System.Func{System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},``2},NPoco.Sql)">
+            <summary>
+            Fetches multiple result sets into the one object.
+            In this method you must provide how you will take the results and combine them
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``4(System.Func{System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},System.Collections.Generic.List{``2},``3},NPoco.Sql)">
+            <summary>
+            Fetches multiple result sets into the one object.
+            In this method you must provide how you will take the results and combine them
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``5(System.Func{System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},System.Collections.Generic.List{``2},System.Collections.Generic.List{``3},``4},NPoco.Sql)">
+            <summary>
+            Fetches multiple result sets into the one object.
+            In this method you must provide how you will take the results and combine them
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``2(System.String,System.Object[])">
+            <summary>
+            Fetches multiple result sets into the one Tuple.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``3(System.String,System.Object[])">
+            <summary>
+            Fetches multiple result sets into the one Tuple.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``4(System.String,System.Object[])">
+            <summary>
+            Fetches multiple result sets into the one Tuple.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``2(NPoco.Sql)">
+            <summary>
+            Fetches multiple result sets into the one Tuple.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``3(NPoco.Sql)">
+            <summary>
+            Fetches multiple result sets into the one Tuple.
+            </summary>
+        </member>
+        <member name="M:NPoco.IDatabaseQuery.FetchMultiple``4(NPoco.Sql)">
+            <summary>
+            Fetches multiple result sets into the one Tuple.
+            </summary>
+        </member>
+        <member name="T:NPoco.MemberAccessor">
+            <summary>
+            The PropertyAccessor class provides fast dynamic access
+            to a property of a specified target class.
+            </summary>
+        </member>
+        <member name="M:NPoco.MemberAccessor.#ctor(System.Type,System.String)">
+            <summary>
+            Creates a new property accessor.
+            </summary>
+            <param name="targetType">Target object type.</param>
+            <param name="memberName">Property name.</param>
+        </member>
+        <member name="M:NPoco.MemberAccessor.Set(System.Object,System.Object)">
+            <summary>
+            Sets the property for the specified target.
+            </summary>
+            <param name="target">Target object.</param>
+            <param name="value">Value to set.</param>
+        </member>
+        <member name="P:NPoco.ReferenceAttribute.ReferenceMemberName">
+            <summary>
+            The property name (case sensitive) that links the relationship.
+            </summary>
+        </member>
+        <member name="P:NPoco.ReferenceAttribute.ColumnName">
+            <summary>
+            The database column name that maps to the property.
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.#ctor">
+            <summary>
+            Initialises the SqlBuilder
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Initialises the SqlBuilder with default replacement overrides
+            </summary>
+            <param name="defaultOverrides">A dictionary of token overrides. A value null means the token will not be replaced.</param>
+            <example>
+            { "where", "1=1" }
+            { "where(name)", "1!=1" }
+            </example>
+        </member>
+        <member name="M:NPoco.SqlBuilder.Select(System.String[])">
+            <summary>
+            Replaces the Select columns. Uses /**select**/
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.Join(System.String,System.Object[])">
+            <summary>
+            Adds an Inner Join. Uses /**join**/
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.LeftJoin(System.String,System.Object[])">
+            <summary>
+            Adds a Left Join. Uses /**leftjoin**/
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.Where(System.String,System.Object[])">
+            <summary>
+            Adds a filter. The Where keyword still needs to be specified. Uses /**where**/
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.WhereNamed(System.String,System.String,System.Object[])">
+            <summary>
+            Adds a named filter. The Where keyword still needs to be specified. Uses /**where(name)**/
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.OrderBy(System.String,System.Object[])">
+            <summary>
+            Adds an Order By clause. Uses /**orderby**/
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.OrderByCols(System.String[])">
+            <summary>
+            Adds columns in the Order By clause. Uses /**orderbycols**/
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.GroupBy(System.String,System.Object[])">
+            <summary>
+            Adds a Group By clause. Uses /**groupby**/
+            </summary>
+        </member>
+        <member name="M:NPoco.SqlBuilder.Having(System.String,System.Object[])">
+            <summary>
+            Adds a Having clause. Uses /**having**/
+            </summary>
+        </member>
+        <member name="M:NPoco.TypeHelpers.GetTheType``1(``0)">
+            <summary>
+            Gets an object's type even if it is null.
+            </summary>
+            <typeparam name="T">The type of the object.</typeparam>
+            <param name="that">The object being extended.</param>
+            <returns>The objects type.</returns>
+        </member>
+        <member name="M:NPoco.TypeHelpers.GetTheType(System.Object)">
+            <summary>
+            Gets an object's type even if it is null.
+            </summary>
+            <param name="that">The object being extended.</param>
+            <returns>The objects type.</returns>
+        </member>
+        <member name="T:NPoco.Expressions.PartialEvaluator">
+            <summary>
+            Rewrites an expression tree so that locally isolatable sub-expressions are evaluated and converted into ConstantExpression nodes.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:NPoco.Expressions.PartialEvaluator.Eval(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Boolean})" -->
+        <!-- Badly formed XML comment ignored for member "M:NPoco.Expressions.PartialEvaluator.Eval(System.Linq.Expressions.Expression)" -->
+        <!-- Badly formed XML comment ignored for member "T:NPoco.Expressions.PartialEvaluator.SubtreeEvaluator" -->
+        <member name="T:NPoco.Expressions.PartialEvaluator.Nominator">
+            <summary>
+            Performs bottom-up analysis to determine which nodes can possibly
+            be part of an evaluated sub-tree.
+            </summary>
+        </member>
+        <member name="T:NPoco.Expressions.PredicateBuilder">
+            <summary>
+            Enables the efficient, dynamic composition of query predicates.
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.PredicateBuilder.True``1">
+            <summary>
+            Creates a predicate that evaluates to true.
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.PredicateBuilder.False``1">
+            <summary>
+            Creates a predicate that evaluates to false.
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.PredicateBuilder.Create``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Creates a predicate expression from the specified lambda expression.
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.PredicateBuilder.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Combines the first predicate with the second using the logical "and".
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.PredicateBuilder.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Combines the first predicate with the second using the logical "or".
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.PredicateBuilder.Not``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Negates the predicate.
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.PredicateBuilder.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Combines the first expression with the second using the specified merge function.
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.SqlExpression`1.Select``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Fields to be selected.
+            </summary>
+            <param name='fields'>
+            x=> x.SomeProperty1 or x=> new{ x.SomeProperty1, x.SomeProperty2}
+            </param>
+            <typeparam name='TKey'>
+            objectWithProperties
+            </typeparam>
+        </member>
+        <member name="M:NPoco.Expressions.SqlExpression`1.Limit(System.Int32,System.Int32)">
+            <summary>
+            Set the specified offset and rows for SQL Limit clause.
+            </summary>
+            <param name='skip'>
+            Offset of the first row to return. The offset of the initial row is 0
+            </param>
+            <param name='rows'>
+            Number of rows returned by a SELECT statement
+            </param>
+        </member>
+        <member name="M:NPoco.Expressions.SqlExpression`1.Limit(System.Int32)">
+            <summary>
+            Set the specified rows for Sql Limit clause.
+            </summary>
+            <param name='rows'>
+            Number of rows returned by a SELECT statement
+            </param>
+        </member>
+        <member name="M:NPoco.Expressions.SqlExpression`1.Update``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Fields to be updated.
+            </summary>
+            <param name='fields'>
+            x=> x.SomeProperty1 or x=> new{ x.SomeProperty1, x.SomeProperty2}
+            </param>
+            <typeparam name='TKey'>
+            objectWithProperties
+            </typeparam>
+        </member>
+        <member name="M:NPoco.Expressions.SqlExpression`1.ToDeleteStatement">
+            <summary>
+            Clear InsertFields list ( all fields will be inserted)
+            </summary>
+        </member>
+        <member name="M:NPoco.Expressions.LinqExtensions.GetConstantValue``1(System.Linq.Expressions.Expression)">
+            <summary>
+            Gets the constant value.
+            </summary>
+            <param retval="exp">The exp.</param>
+            <returns>The get constant value.</returns>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.UseOptimizedDatasetSchema">
+            <summary>
+            Use the optimized fast Dataset Schema format (default = True)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.UseFastGuid">
+            <summary>
+            Use the fast GUID format (default = True)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.SerializeNullValues">
+            <summary>
+            Serialize null values to the output (default = True)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.UseUTCDateTime">
+            <summary>
+            Use the UTC date format (default = True)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.ShowReadOnlyProperties">
+            <summary>
+            Show the readonly properties of types in the output (default = False)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.UsingGlobalTypes">
+            <summary>
+            Use the $types extension to optimise the output json (default = True)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.IgnoreCaseOnDeserialize">
+            <summary>
+            Ignore case when processing json and deserializing 
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.EnableAnonymousTypes">
+            <summary>
+            Anonymous types have read only properties 
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.UseExtensions">
+            <summary>
+            Enable fastJSON extensions $types, $type, $map (default = True)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.UseEscapedUnicode">
+            <summary>
+            Use escaped unicode i.e. \uXXXX format for non ASCII characters (default = True)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.KVStyleStringDictionary">
+            <summary>
+            Output string key dictionaries as "k"/"v" format (default = False) 
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.UseValuesOfEnums">
+            <summary>
+            Output Enum values instead of names (default = False)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.IgnoreAttributes">
+            <summary>
+            Ignore attributes to check for (default : XmlIgnoreAttribute)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.ParametricConstructorOverride">
+            <summary>
+            If you have parametric and no default constructor for you classes (default = False)
+            
+            IMPORTANT NOTE : If True then all initial values within the class will be ignored and will be not set
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.DateTimeMilliseconds">
+            <summary>
+            Serialize DateTime milliseconds i.e. yyyy-MM-dd HH:mm:ss.nnn (default = false)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.SerializerMaxDepth">
+            <summary>
+            Maximum depth for circular references in inline mode (default = 20)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.InlineCircularReferences">
+            <summary>
+            Inline circular or already seen objects instead of replacement with $i (default = False) 
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSONParameters.SerializeToLowerCaseNames">
+            <summary>
+            Save property/field names as lowercase (default = false)
+            </summary>
+        </member>
+        <member name="F:NPoco.fastJSON.JSON.Parameters">
+            <summary>
+            Globally set-able parameters for controlling the serializer
+            </summary>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ToNiceJSON(System.Object,NPoco.fastJSON.JSONParameters)">
+            <summary>
+            Create a formatted json string (beautified) from an object
+            </summary>
+            <param name="obj"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ToJSON(System.Object)">
+            <summary>
+            Create a json representation for an object
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ToJSON(System.Object,NPoco.fastJSON.JSONParameters)">
+            <summary>
+            Create a json representation for an object with parameter override on this call
+            </summary>
+            <param name="obj"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.Parse(System.String)">
+            <summary>
+            Parse a json string and generate a Dictionary&lt;string,object&gt; or List&lt;object&gt; structure
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ToObject``1(System.String)">
+            <summary>
+            Create a typed generic object from the json
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ToObject``1(System.String,NPoco.fastJSON.JSONParameters)">
+            <summary>
+            Create a typed generic object from the json with parameter override on this call
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ToObject(System.String)">
+            <summary>
+            Create an object from the json
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ToObject(System.String,NPoco.fastJSON.JSONParameters)">
+            <summary>
+            Create an object from the json with parameter override on this call
+            </summary>
+            <param name="json"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ToObject(System.String,System.Type)">
+            <summary>
+            Create an object of type from the json
+            </summary>
+            <param name="json"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.FillObject(System.Object,System.String)">
+            <summary>
+            Fill a given object with the json represenation
+            </summary>
+            <param name="input"></param>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.DeepCopy(System.Object)">
+            <summary>
+            Deep copy an object i.e. clone to a new object
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.DeepCopy``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.Beautify(System.String)">
+            <summary>
+            Create a human readable string from the json 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.RegisterCustomType(System.Type,NPoco.fastJSON.Serialize,NPoco.fastJSON.Deserialize)">
+            <summary>
+            Register custom type handlers for your own types not natively handled by fastJSON
+            </summary>
+            <param name="type"></param>
+            <param name="serializer"></param>
+            <param name="deserializer"></param>
+        </member>
+        <member name="M:NPoco.fastJSON.JSON.ClearReflectionCache">
+            <summary>
+            Clear the internal reflection cache so you can start from new (you will loose performance)
+            </summary>
+        </member>
+        <member name="T:NPoco.fastJSON.JsonParser">
+            <summary>
+            This class encodes and decodes JSON strings.
+            Spec. details, see http://www.json.org/
+            </summary>
+        </member>
+    </members>
+</doc>
