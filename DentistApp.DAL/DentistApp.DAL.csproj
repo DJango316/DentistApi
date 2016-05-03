@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="DbFactory\DbFactory.cs" />
     <Compile Include="DbFactory\IDbFactory.cs" />
-    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Entities\Company.cs" />
     <Compile Include="Models\Entities\Patient.cs" />
     <Compile Include="Models\Entities\Task.cs" />

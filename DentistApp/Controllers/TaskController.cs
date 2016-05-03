@@ -44,7 +44,6 @@ namespace DentistApp.Controllers
                 var company = companyService.GetCompanyByID(t.CompanyID);
                 var patient = patientService.GetPatientByID(t.PatientID);
              
-
                 t.patient = patient;
                 t.company = company;
             }
@@ -53,7 +52,7 @@ namespace DentistApp.Controllers
         }
 
         [Route("{name}")]
-        public TaskDTO GetTaskFromName(string name)
+        public List<TaskDTO> GetTaskFromName(string name)
         {
             var taskService = new TaskService(_taskRepository);
 
@@ -61,12 +60,14 @@ namespace DentistApp.Controllers
 
             var patientService = new PatientService(_patientRepository);
             var companyService = new CompanyService(_companyRepository);
+            foreach (TaskDTO t in task)
+            {
+                var company = companyService.GetCompanyByID(t.CompanyID);
+                var patient = patientService.GetPatientByID(t.PatientID);
 
-            var company = companyService.GetCompanyByID(task.CompanyID);
-            var patient = patientService.GetPatientByID(task.PatientID);
-
-            task.patient = patient;
-            task.company = company;
+                t.patient = patient;
+                t.company = company;
+            }
 
             return task;
         }

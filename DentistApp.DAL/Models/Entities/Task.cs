@@ -13,10 +13,10 @@ namespace DentistApp.DAL.Models.Entities
     {
         [Column("TaskID")]
         public Guid TaskID { get; set; }
-        public Patient patients { get; set; }
+       // public Patient patients { get; set; }
         [Column("PatientID")]
         public Guid PatientID { get; set; }
-        public Company company { get; set; }
+       // public Company company { get; set; }
       
         [Column("CompanyID")]
         public Guid CompanyID { get; set; }

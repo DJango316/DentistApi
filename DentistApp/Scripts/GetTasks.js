@@ -24,9 +24,15 @@ function formatItem(item) {
 
 function find() {
     var id = $('#taskId').val();
+    var index = 0;
     $.getJSON('tasks/' + id)
         .done(function (data) {    
-            $('#task').text(formatItem(data));
+            // $('#task').text(formatItem(data));
+            $.each(data, function (key, item) {
+                // Add a list item for the product.
+                $('#task').text(formatItem(data[index]));
+                index++;
+            });
         })
         .fail(function (jqXHR, textStatus, err) {
             $('#task').text('Error: ' + err);

@@ -26,11 +26,11 @@ namespace DentistApp.BLL.Services
             return task.ToDTO<TaskDTO>().ToList();
         }
 
-        public TaskDTO GetTaskByName(string TaskName)
+        public List<TaskDTO> GetTaskByName(string TaskName)
         {
             var task = _taskRepository.GetTaskByName(TaskName);
 
-            return task.ToDTO<TaskDTO>();
+            return task.ToDTO<TaskDTO>().ToList();
         }
 
         public TaskDTO GetTaskByID(Guid id)

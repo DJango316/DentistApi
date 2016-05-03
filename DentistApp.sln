@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentistApp.DAL", "DentistAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentistApp.BLL", "DentistApp.BLL\DentistApp.BLL.csproj", "{64DAD2EC-ECAB-4A37-8B64-97F4B55E0AB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentistApp.Test", "DentistApp.Test\DentistApp.Test.csproj", "{B66A8B05-3BD7-47E4-A9E4-56DA60E4E45D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{64DAD2EC-ECAB-4A37-8B64-97F4B55E0AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64DAD2EC-ECAB-4A37-8B64-97F4B55E0AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64DAD2EC-ECAB-4A37-8B64-97F4B55E0AB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66A8B05-3BD7-47E4-A9E4-56DA60E4E45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66A8B05-3BD7-47E4-A9E4-56DA60E4E45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66A8B05-3BD7-47E4-A9E4-56DA60E4E45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66A8B05-3BD7-47E4-A9E4-56DA60E4E45D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

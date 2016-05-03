@@ -25,26 +25,27 @@ namespace DentistApp.DAL.Repositories.Task
             {
                 sql = NPoco.Sql.Builder
                     .Append("SELECT *")
-                    .Append("FROM Task")
-                    .Append("INNER JOIN Company ON Task.CompanyID = Company.CompanyID")
-                    .Append("INNER JOIN Patient ON Task.PatientID = Patient.PatientID");
+                    .Append("FROM Task");
+                    //.Append("INNER JOIN Company ON Task.CompanyID = Company.CompanyID")
+                    //.Append("INNER JOIN Patient ON Task.PatientID = Patient.PatientID");
            
 
-                return db.Fetch<Models.Entities.Task>(sql);
+                return db.Fetch<Models.Entities.Task>();
             }
         }
 
-        public Models.Entities.Task GetTaskByName(string TaskName)
+        public List<Models.Entities.Task> GetTaskByName(string TaskName)
         {
-            NPoco.Sql sql;
+            
             using (var db = _dbFactory.GetConnection())
             {
+                NPoco.Sql sql;
                 sql = NPoco.Sql.Builder
                   .Append("SELECT *")
                   .Append("FROM Task")
                   .Append("WHERE Task.TaskName = '" + TaskName + "'");
 
-                return db.Fetch<Models.Entities.Task>(sql).FirstOrDefault();
+                return db.Fetch<Models.Entities.Task>(sql);
             }
         }
 
